@@ -116,6 +116,7 @@ Setiap teknik pengolahan dianalisis menggunakan metrik kuantitatif:
 ### 1. Grayscale
 
 ![Grayscale](output/Grayscale.jpg)
+![Analisis Grayscale](Hasil%20analisis/02_analisis_grayscale.png)
 
 | Metrik | Original | Hasil | Delta |
 |---|---|---|---|
@@ -129,6 +130,7 @@ Setiap teknik pengolahan dianalisis menggunakan metrik kuantitatif:
 ### 2. Binary
 
 ![Binary](output/Binary.jpg)
+![Analisis Binary](Hasil%20analisis/03_analisis_binary.png)
 
 | Metrik | Original | Hasil | Delta |
 |---|---|---|---|
@@ -140,6 +142,7 @@ Setiap teknik pengolahan dianalisis menggunakan metrik kuantitatif:
 ### 3. Histogram Equalization
 
 ![Histogram Equalization](output/Histogram_Equalization.jpg)
+![Analisis Histogram Equalization](Hasil%20analisis/05_analisis_histogram_equalization.png)
 
 | Metrik | Original | Hasil | Delta |
 |---|---|---|---|
@@ -153,78 +156,91 @@ Setiap teknik pengolahan dianalisis menggunakan metrik kuantitatif:
 ### 4. Contrast Stretching
 
 ![Contrast Stretching](output/Contrast_Stretching.jpg)
+![Analisis Contrast Stretching](Hasil%20analisis/04_analisis_contrast_stretching.png)
 
 > **Analisis:** Meregangkan intensitas piksel minimum ke 0 dan maksimum ke 255. Kontras meningkat tanpa kehilangan informasi gradasi (tidak seperti equalization). Efektif untuk citra low-contrast.
 
 ### 5. Brightness Adjustment
 
 ![Brightness Adjustment](output/Brightness_Adjustment.jpg)
+![Analisis Brightness](Hasil%20analisis/06_analisis_brightness.png)
 
 > **Analisis:** Menambahkan nilai beta (+50) ke setiap piksel. Mean naik ~50 poin. PSNR biasanya rendah (~15 dB) karena perubahan sistematis pada seluruh piksel. SSIM juga turun signifikan.
 
 ### 6. Sharpening
 
 ![Sharpening](output/Sharpening.jpg)
+![Analisis Sharpening](Hasil%20analisis/07_analisis_sharpening.png)
 
 > **Analisis:** Kernel unsharp mask (pusat 5, tetangga -1) memperkuat perbedaan intensitas di tepi. SSIM masih tinggi (>0.7) karena struktur objek dipertahankan. PSNR ~20 dB.
 
 ### 7. Mean Filter (5×5)
 
 ![Mean Filter](output/Mean_Filter.jpg)
+![Analisis Mean Filter](Hasil%20analisis/08_analisis_mean_filter.png)
 
 > **Analisis:** Menghaluskan noise dengan mengganti setiap piksel dengan rata-rata 5×5 tetangganya. Standar deviasi turun (gambar jadi lebih homogen). SSIM >0.6 — struktur utama masih terbaca.
 
 ### 8. Median Filter (5×5)
 
 ![Median Filter](output/Median_Filter.jpg)
+![Analisis Median Filter](Hasil%20analisis/09_analisis_median_filter.png)
 
 > **Analisis:** Lebih kuat melawan salt-and-pepper noise daripada Mean Filter. Tepi lebih terjaga karena median tidak terpengaruh outlier. SSIM lebih tinggi dari Mean Filter untuk gambar bernoise.
 
 ### 9. Gaussian Filter (5×5, σ=1)
 
 ![Gaussian Filter](output/Gaussian_Filter.jpg)
+![Analisis Gaussian Filter](Hasil%20analisis/10_analisis_gaussian_filter.png)
 
 > **Analisis:** Blurring berbobot Gaussian. Tepi lebih halus daripada Mean Filter. Standar deviasi turun paling banyak di antara ketiga filter karena bobot pusat lebih tinggi.
 
 ### 10. Edge Detection — Canny
 
 ![Canny](output/Edge_Detection_Canny.jpg)
+![Analisis Canny](Hasil%20analisis/11_analisis_edge_detection_canny.png)
 
 > **Analisis:** Algoritma Canny multi-tahap menghasilkan tepi tipis dan kontinu. Threshold bawah (100) dan atas (200) mendeteksi tepi signifikan saja. Output biner — SSIM rendah (~0.3) karena struktur direduksi jadi garis tepi.
 
 ### 11. Edge Detection — Sobel
 
 ![Sobel](output/Edge_Detection_Sobel.jpg)
+![Analisis Sobel](Hasil%20analisis/12_analisis_edge_detection_sobel.png)
 
 > **Analisis:** Gradien Sobel 3×3 horizontal & vertikal. Tepi lebih tebal dari Canny. Sensitif terhadap noise. Magnitudo gradien dikonversi ke uint8.
 
 ### 12. Edge Detection — Prewitt
 
 ![Prewitt](output/Edge_Detection_Prewitt.jpg)
+![Analisis Prewitt](Hasil%20analisis/13_analisis_edge_detection_prewitt.png)
 
 > **Analisis:** Kernel Prewitt 3×3 — mirip Sobel tapi bobot sama rata (tanpa penekanan pusat). Tepi diagonal lebih terdeteksi.
 
 ### 13. Segmentasi K-Means (k=3)
 
 ![K-Means k=3](output/Segmentasi_K-Means_k=3.jpg)
+![Analisis K-Means k=3](Hasil%20analisis/14_analisis_kmeans_k3.png)
 
 > **Analisis:** Meng-cluster piksel ke 3 kelompok warna. Setiap piksel diganti dengan warna centroid-nya. Efektif memisahkan objek dari background. SSIM rendah (~0.4) karena kuantisasi warna drastis.
 
 ### 14. Segmentasi K-Means (k=5)
 
 ![K-Means k=5](output/Segmentasi_K-Means_k=5.jpg)
+![Analisis K-Means k=5](Hasil%20analisis/15_analisis_kmeans_k5.png)
 
 > **Analisis:** Sama dengan k=3 tapi dengan 5 cluster. Detail lebih halus — bayangan dan highlight terpisah lebih baik. Lebih mendekati gambar asli.
 
 ### 15. Segmentasi Threshold (Otsu)
 
 ![Threshold](output/Segmentasi_Threshold.jpg)
+![Analisis Threshold](Hasil%20analisis/16_analisis_threshold.png)
 
 > **Analisis:** Otsu's thresholding otomatis memisahkan foreground/background. Output biner. Cocok untuk objek dengan kontras tinggi terhadap background.
 
 ### 16. Segmentasi Watershed
 
 ![Watershed](output/Segmentasi_Watershed.jpg)
+![Analisis Watershed](Hasil%20analisis/17_analisis_watershed.png)
 
 > **Analisis:** Segmentasi berbasis marker dengan distance transform. Garis watershed ditandai warna biru. Mampu memisahkan objek yang saling bersentuhan. Paling kompleks secara komputasi.
 
@@ -334,6 +350,9 @@ UAS_Pengolahan_Citra/
 ├── output/
 │   ├── *.jpg            # 17 hasil pengolahan citra
 │   └── klasifikasi_cnn.png  # Grafik training CNN
+├── Hasil analisis/
+│   ├── XX_analisis_*.png    # 16 grafik analisis per teknik
+│   └── SS_*.png             # Screenshot GUI aplikasi
 ├── src/
 │   ├── main.py          # Entry point aplikasi
 │   ├── gui.py           # GUI Tkinter (3 tab)
