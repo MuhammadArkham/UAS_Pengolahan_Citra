@@ -7,7 +7,7 @@
 | **Mata Kuliah** | Pengolahan Citra Digital |
 | **Nama** | Muhammad Arkhamullah Rifai Asshidiq |
 | **NIM** | 312410545 |
-| **Program Studi** | Manajemen Informatika — UPB |
+| **Program Studi** | Teknik Informatika — UPB |
 
 ---
 
