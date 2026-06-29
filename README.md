@@ -1,10 +1,10 @@
 # UAS_Pengolahan_Citra — CitraLab
 
-**Aplikasi Pengolahan Citra Digital & Klasifikasi CNN**
+**Aplikasi Pengolahan Citra & Klasifikasi CNN**
 
 | | |
 |---|---|
-| **Mata Kuliah** | Pengolahan Citra Digital |
+| **Mata Kuliah** | Pengolahan Citra |
 | **Nama** | Muhammad Arkhamullah Rifai Asshidiq |
 | **NIM** | 312410545 |
 | **Program Studi** | Teknik Informatika — UPB |
